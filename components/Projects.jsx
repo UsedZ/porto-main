@@ -9,7 +9,7 @@ import translations from "@/translations";
 const projectImages = [
   ["/images/2.jpeg", "/images/11.jpeg", "/images/12.jpeg"],
   ["/images/test.jpeg", "/images/test2.jpeg", "/images/test3.jpeg", "/images/test4.jpeg", "/images/test5.jpeg"],
-  ["/images/eltahfidh.png", "/images/ecommerce.png", "/images/restaurant.png", "/images/portfolio.png"],
+  ["/images/eltahfidh.png", "/images/ecommerce.png", "/images/restaurant.png", "/images/portfolio.png", "/images/study-case/ecommerce-daging.png", "/images/study-case/talenta.png", "/images/study-case/aes/dashboard.png", "/images/study-case/aes/login.png", "/images/study-case/ahp-decision-support.png", "/images/study-case/saw-decision-support.png", "/images/study-case/inventory-pos.png"],
 ];
 
 const imageFit = {
@@ -22,7 +22,7 @@ const fitFor = (src) => {
 const projectTags = [
   ["Hardware", "Software", "Network", "Maintenance"],
   ["Arduino", "ESP32", "MQTT", "Sensors"],
-  ["React", "Next.js", "Tailwind CSS", "Responsive"],
+  ["React", "Next.js", "Tailwind CSS", "Responsive", "PHP", "MySQL", "CodeIgniter 3", "AES-128", "AHP / SAW", "Inventory"],
 ];
 
 const projectCategories = ["IT Support", "IoT", "Web Development"];
@@ -163,18 +163,32 @@ const Projects = () => {
                     ))}
                   </div>
 
-                  <div className="mt-5 flex items-center gap-2 border-t border-border pt-4">
-                    {project.demoUrl && (
-                      <a
-                        href={project.demoUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-xs font-semibold text-accent hover:underline"
-                      >
-                        <FiExternalLink size={13} />
-                        {project.demoLabel || t.liveDemo}
-                      </a>
-                    )}
+                  <div className="mt-5 flex flex-wrap items-center gap-2 border-t border-border pt-4">
+                    <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5">
+                      {(project.demoLinks || []).map((link) => (
+                        <a
+                          key={link.url}
+                          href={link.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 text-xs font-semibold text-accent hover:underline"
+                        >
+                          <FiExternalLink size={13} />
+                          {link.label}
+                        </a>
+                      ))}
+                      {!project.demoLinks && project.demoUrl && (
+                        <a
+                          href={project.demoUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 text-xs font-semibold text-accent hover:underline"
+                        >
+                          <FiExternalLink size={13} />
+                          {project.demoLabel || t.liveDemo}
+                        </a>
+                      )}
+                    </div>
                     <a
                       href={`https://github.com/syncid/${project.title.toLowerCase().replace(/\s+/g, "-")}`}
                       target="_blank"

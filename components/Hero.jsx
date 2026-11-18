@@ -8,62 +8,18 @@ const ROLES = [
   "Full Stack Developer",
 ];
 
-import { useEffect, useMemo, useState } from "react";
-import dynamic from "next/dynamic";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
 import { FiArrowDownRight } from "react-icons/fi";
 import { useLanguage } from "@/context/LanguageContext.js";
 import translations from "@/translations";
-import useReducedMotion from "./hero/useReducedMotion";
 import Scene3DFallback from "./hero/Scene3DFallback";
-
-// Cinematic 3D scene: three.js murni (lihat components/hero/Scene3D.jsx).
-// Dimuat lazy (ssr:false) supaya three hanya masuk chunk klien, dan hanya
-// dipasang kalau perangkat benar-benar sanggup WebGL.
-const Scene3D = dynamic(() => import("./hero/Scene3D"), { ssr: false, loading: () => null });
 
 const Hero = () => {
   const { lang } = useLanguage();
   const t = translations[lang].hero;
 
-  const reducedMotion = useReducedMotion();
-  const hasWebGL = useMemo(() => {
-    if (typeof window === "undefined") return false;
-    try {
-      const probe = document.createElement("canvas");
-      return !!(probe.getContext("webgl2") || probe.getContext("webgl"));
-    } catch {
-      return false;
-    }
-  }, []);
-  const [sceneFailed, setSceneFailed] = useState(false);
-  const [tier, setTier] = useState("full");
-
-  useEffect(() => {
-    const computeTier = () => {
-      const w = window.innerWidth;
-      const cores = navigator.hardwareConcurrency || 4;
-      if (cores <= 2) return "off"; // perangkat sangat lemah → poster
-      if (w < 768) return "light";
-      if (w < 1024) return "medium";
-      return "full";
-    };
-    setTier(computeTier());
-    const onResize = () => {
-      // pindah breakpoint = kesempatan mencoba lagi setelah watchdog menyerah
-      setTier(computeTier());
-      setSceneFailed(false);
-    };
-    window.addEventListener("resize", onResize);
-    window.addEventListener("orientationchange", onResize);
-    return () => {
-      window.removeEventListener("resize", onResize);
-      window.removeEventListener("orientationchange", onResize);
-    };
-  }, []);
-
-  const show3D = hasWebGL && !reducedMotion && !sceneFailed && tier !== "off";
   const [roleIndex, setRoleIndex] = useState(0);
   const [typed, setTyped] = useState("IT Support Specialist");
   const [deleting, setDeleting] = useState(false);
@@ -121,8 +77,8 @@ const Hero = () => {
       <div className="absolute inset-0" aria-hidden="true">
         <div className="absolute inset-0 bg-bg-cinema" />
       </div>
-      {/* Latar sinematik: kanvas three.js (atau poster statis kalau WebGL/reduced-motion/mobile). */}
-      {show3D ? <Scene3D tier={tier} onLowPerf={() => setSceneFailed(true)} /> : <Scene3DFallback />}
+      {/* Latar: gradient + vignette saja. Tanpa kanvas/WebGL sesuai keputusan owner. */}
+      <Scene3DFallback />
       <div className="shell relative z-10">
         <div className="grid items-end gap-12 lg:grid-cols-12 lg:gap-10">
           {/* Copy */}

@@ -168,7 +168,7 @@ test("elTAHFIDH screenshot asset exists as a real, unique PNG", () => {
 
   // Must not be a duplicate/copy of any other portfolio asset.
   const others = readdirSync(path.join(root, "public/images")).filter(
-    (f) => f !== "eltahfidh.png",
+    (f) => f !== "eltahfidh.png" && statSync(path.join(root, "public/images", f)).isFile(),
   );
   for (const other of others) {
     const otherBytes = readFileSync(path.join(root, "public/images", other));

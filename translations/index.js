@@ -84,9 +84,19 @@ const translations = {
         {
           title: "Web Development Projects",
           description:
-            "A collection of web development projects including elTAHFIDH, an Islamic boarding school website built as a sample project, plus an e-commerce UI, restaurant landing page, and portfolio website using modern technologies",
+            "A collection of web projects: elTAHFIDH (Islamic boarding school site), an e-commerce UI, a restaurant landing page, and seven study cases — meat e-commerce on CodeIgniter 3, a job and event portal, AES-128 file encryption, AHP and SAW decision support systems, and an inventory and POS app.",
           demoUrl: "https://eltahfidh.or.id/",
           demoLabel: "View elTAHFIDH Live Site",
+          demoLinks: [
+          { url: "https://eltahfidh.or.id/", label: "Live elTAHFIDH" },
+          { url: "/demo/ecommerce-daging/index.html", label: "Demo E-Commerce Daging" },
+          { url: "/demo/talenta/index.html", label: "Demo Portal Lowongan Talenta" },
+          { url: "/demo/aes-128-file-encryption/index.html", label: "Demo Enkripsi File AES-128" },
+          { url: "/demo/aes-128-legacy-build/index.html", label: "Demo Build Awal AES-128" },
+          { url: "/demo/ahp-decision-support/index.html", label: "Demo SPK AHP" },
+          { url: "/demo/saw-decision-support/index.html", label: "Demo SPK SAW" },
+          { url: "/demo/inventory-pos/index.html", label: "Demo Inventory & POS" },
+          ],
         },
       ],
     },
@@ -199,9 +209,19 @@ const translations = {
         {
           title: "Proyek Pengembangan Web",
           description:
-            "Kumpulan proyek pengembangan web meliputi elTAHFIDH, website pesantren Islam yang dibuat sebagai proyek contoh, serta UI e-commerce, landing page restoran, dan portfolio website menggunakan teknologi modern",
+            "Kumpulan proyek web: elTAHFIDH (website pesantren), UI e-commerce, landing page restoran, dan tujuh studi kasus — e-commerce daging CodeIgniter 3, portal lowongan dan event, enkripsi file AES-128, sistem pendukung keputusan AHP dan SAW, serta aplikasi inventory dan POS.",
           demoUrl: "https://eltahfidh.or.id/",
           demoLabel: "Lihat Situs Live elTAHFIDH",
+          demoLinks: [
+          { url: "https://eltahfidh.or.id/", label: "Live elTAHFIDH" },
+          { url: "/demo/ecommerce-daging/index.html", label: "Demo E-Commerce Daging" },
+          { url: "/demo/talenta/index.html", label: "Demo Portal Lowongan Talenta" },
+          { url: "/demo/aes-128-file-encryption/index.html", label: "Demo Enkripsi File AES-128" },
+          { url: "/demo/aes-128-legacy-build/index.html", label: "Demo Build Awal AES-128" },
+          { url: "/demo/ahp-decision-support/index.html", label: "Demo SPK AHP" },
+          { url: "/demo/saw-decision-support/index.html", label: "Demo SPK SAW" },
+          { url: "/demo/inventory-pos/index.html", label: "Demo Inventory & POS" },
+          ],
         },
       ],
     },
