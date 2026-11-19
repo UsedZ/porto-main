@@ -77,12 +77,10 @@ test("app/globals.css defines cinematic CSS variables inside .dark", () => {
     /--on-accent/.test(css),
     "dark mode must define --on-accent",
   );
-  assert.ok(
-    /\.vignette/.test(css),
-    "globals.css must define the .vignette class",
-  );
+  assert.ok(!/\.vignette/.test(css), "globals.css tidak boleh mendefinisikan vignette gelap");
   assert.ok(
     /\.dark \.noise-overlay/.test(css) || /\.noise-overlay/.test(css),
     "globals.css must define the .noise-overlay class",
   );
+  assert.ok(!/rgba\(20,\s*20,\s*17/.test(css), "tidak boleh ada bayangan gelap berbasis rgba(20,20,17)");
 });

@@ -13,6 +13,14 @@ const nextConfig = {
   experimental: {
     optimizeCss: true,
   },
+  outputFileTracingExcludes: {
+    '*': [
+      '.env.local',
+      'data/conversations.db',
+      'data/conversations.db-shm',
+      'data/conversations.db-wal',
+    ],
+  },
   // Turbopack reads tsconfig.json paths (not jsconfig.json) for module
   // resolution and code-splitting. Register the @/* alias here so the
   // lazy Scene3D scene imports (components/Hero.jsx) generate a proper

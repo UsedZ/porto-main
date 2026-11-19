@@ -3,25 +3,31 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Demo — Build Awal AES-128 | Syahrul Ramlan</title>
+<title>Demo &amp; Uji Kelayakan — Build Awal AES-128 | Syahrul Ramlan</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:#0d1117;color:#e6edf3;font-family:system-ui,sans-serif;line-height:1.6}
-.wrap{max-width:900px;margin:0 auto;padding:32px 20px 60px}
+.wrap{max-width:960px;margin:0 auto;padding:32px 20px 60px}
 a{color:#58a6ff;text-decoration:none}
 .back{display:inline-block;margin-bottom:28px;font-size:.9rem}
 .kicker{color:#58a6ff;font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700}
 h1{font-size:2rem;margin:10px 0}
-.meta{color:#8b949e;margin-bottom:24px}
+h2{font-size:1.1rem;margin:26px 0 8px}
+.meta{color:#8b949e;margin-bottom:18px}
+.status{display:inline-block;border:1px solid #f0883e;color:#f0883e;border-radius:999px;padding:4px 12px;font-size:.75rem;font-weight:700;margin-bottom:20px}
 img{width:100%;border:1px solid #30363d;border-radius:12px;display:block}
-.note{border-left:3px solid #d29922;background:#d2992211;padding:14px 18px;margin-top:24px;border-radius:0 8px 8px 0;color:#c9d1d9}
+ul{margin:6px 0 6px 20px}li{margin:4px 0;color:#c9d1d9}
+.panel{background:#161b22;border:1px solid #30363d;border-radius:12px;padding:16px 20px;margin-top:14px}
+.note{border-left:3px solid #d29922;background:#d2992211;padding:12px 16px;border-radius:0 8px 8px 0;margin-top:14px}
 </style>
 </head>
 <body><div class="wrap">
 <a class="back" href="/">← Kembali ke portofolio</a>
-<div class="kicker">Demo Studi Kasus</div>
+<div class="kicker">Demo &amp; Uji Kelayakan</div>
 <h1>Build Awal AES-128</h1>
 <p class="meta">Legacy PHP · study migrasi</p>
-<img src="../../images/study-case/aes/login.png" alt="Build Awal AES-128">
-<div class="note">Ini halaman demo statis untuk melihat tampilan project. Aplikasi aslinya adalah PHP/MySQL dan dijalankan terpisah. Link demo akan diganti dengan aplikasi live penuh setelah deployment disiapkan.</div>
+<div class="status">STATUS: TIDAK JALAN</div>
+<img src="screen.png" alt="Build Awal AES-128">
+<div class="panel"><h2>Hasil uji</h2><ul><li>AES.php identik dengan versi baru</li><li>README dan testEnkrip.php masih ada</li><li>Screenshot diambil dari arsip Login.zip</li></ul></div>
+<div class="note"><strong>Catatan sebelum produksi</strong><ul><li>mysql_* sudah dihapus sejak PHP 7</li><li>Fatal error pada mysql_connect di PHP 8.3</li><li>Hanya layak sebagai perbandingan migrasi</li></ul></div>
 </div></body></html>

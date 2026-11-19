@@ -20,11 +20,11 @@ test("Hero memakai latar CSS saja, tanpa kanvas/WebGL", () => {
   assert.ok(!/useReducedMotion/.test(hero), "Hero tidak perlu hook reduced-motion lagi");
 });
 
-test("latar statis hanya gradient + vignette", () => {
+test("latar statis hanya gradient, tanpa vignette gelap", () => {
   const src = read("components/hero/Scene3DFallback.jsx");
   assert.ok(/bg-gradient-to-br/.test(src), "latar harus punya gradient");
   assert.ok(/from-accent-violet/.test(src) && /via-accent-blue/.test(src), "aksen gradient harus ada");
-  assert.ok(/vignette/.test(src), "vignette harus ada supaya teks terbaca");
+  assert.ok(!/vignette/.test(src), "tidak boleh ada vignette gelap di latar tema terang");
   assert.ok(!/hero-poster/.test(src), "tidak boleh ada poster 3D");
   assert.ok(!/<img/.test(src), "tidak boleh ada gambar latar");
   assert.ok(!/three/.test(src), "latar tidak boleh mengimpor three");
